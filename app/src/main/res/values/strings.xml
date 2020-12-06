@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">GithubRepo</string>
+    <string name="menu">Menu</string>
+    <string name="select_a_layout_type_to_view_an_example_the_onclick_attribute_of_each_button_will_call_a_method_which_executes_setcontentview_to_load_the_new_layout">Select a layout type to view an example. The onClick attribute of each button will call a method which executes setContentView to load the new layout</string>
+    <string name="load">LOAD</string>
+    <string name="load_constraint_layout">Load Constraint Layout</string>
+    <string name="label">label</string>
+    <string name="load_table_layout">Load Table Layout</string>
+</resources>
