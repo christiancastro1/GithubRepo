@@ -1,4 +1,4 @@
-package com.example.githubrepo.models.reposlist
+package com.example.githubrepo.reposlist
 
 import android.view.LayoutInflater
 import android.view.View
@@ -28,8 +28,8 @@ val diffCallback = object : DiffUtil.ItemCallback<Repo>(){
     }
 
 }
-class ReposAdapter : ListAdapter<Repo, RepoViewHolder>(diffCallback) // takes a model and view holder
-{
+class ReposAdapter(private val repoClickHandler: (Repo) -> Unit) : ListAdapter<Repo, RepoViewHolder>(diffCallback) // takes a model and view holder
+{    // takes ni reporClick handler of functional type
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepoViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_repo, parent, false)
         return RepoViewHolder(view)  // converting xml appearance definition into view Objects into code is calleld inflation
@@ -39,6 +39,10 @@ class ReposAdapter : ListAdapter<Repo, RepoViewHolder>(diffCallback) // takes a 
         // we will get the reference to our holder, and well call the bind method on it,
         // pass in the current item at that position
         holder.bind(getItem(position))
+        holder.itemView.setOnClickListener {   // item view for root of the view
+            repoClickHandler(getItem(position))
+        }
     }
+    
 
 }
